@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_xxx
+    username: xxx
+    password: xxx
+    driverClassName: org.postgresql.Driver
+    
+    
+  velocity:
+    resourceLoaderPath=classpath:/templates/
+    prefix=
+    suffix=.vm
+    cache=false
+    check-template-location=true
+    content-type=text/plain
+    charset=UTF-8
+    properties.input.encoding=UTF-8
+    properties.output.encoding=UTF-8

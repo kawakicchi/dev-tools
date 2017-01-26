@@ -1,0 +1,11 @@
+
+DELETE FROM
+    ${table.name}
+WHERE
+#foreach ($column in $table.columns)
+#if($velocityCount == 1)
+/*%if ${object}.${column.field}$!{column.fieldPad} != null */    ${column.name}$!{column.namePad} = /* ${object}.${column.field}$!{column.fieldPad} */${column.default} /*%end*/
+#else
+/*%if ${object}.${column.field}$!{column.fieldPad} != null */AND ${column.name}$!{column.namePad} = /* ${object}.${column.field}$!{column.fieldPad} */${column.default} /*%end*/
+#end
+#end

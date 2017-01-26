@@ -1,0 +1,59 @@
+/*
+ *
+ *
+ */
+package ${class.package};
+
+import java.io.Serializable;
+#foreach ($import in $class.imports)
+import ${import};
+#end
+
+/**
+ * $!{class.label}
+#if($class.comment)
+ * <p>
+ * ${class.comment}
+ * </p>
+#end
+ * 
+ * @author $!{author}
+ */
+#foreach ($annotation in $class.annotations)
+${annotation}
+#end
+public class ${class.name} implements Serializable {
+
+	/** serialVersionUID */
+	private static final long serialVersionUID = 1L;
+
+#foreach ($field in $class.fields)
+	/** $!{field.label} */
+#foreach ($annotation in $field.annotations)
+	${annotation}
+#end
+	private ${field.type} ${field.name};
+#end
+
+#foreach ($field in $class.fields)
+	/**
+	 * $!{field.label} を取得する。
+	 *
+	 * @return $!{field.label}
+	 */
+	public ${field.type} ${field.getterMethodName}() {
+		return ${field.name};
+	}
+
+	/**
+	 * $!{field.label} を設定する。
+	 *
+	 * @param ${field.name} $!{field.label}
+	 */
+	public void ${field.setterMethodName}(final ${field.type} ${field.name}) {
+		this.${field.name} = ${field.name};
+	}
+
+#end
+}
+ 

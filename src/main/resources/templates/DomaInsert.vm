@@ -1,0 +1,20 @@
+
+INSERT INTO
+    ${table.name}
+(
+#foreach ($column in $table.columns)
+#if($velocityCount == 1)
+    ${column.name}
+#else
+  , ${column.name}
+#end
+#end
+) VALUES (
+#foreach ($column in $table.columns)
+#if($velocityCount == 1)
+    /* ${object}.${column.field}$!{column.fieldPad} */${column.default}
+#else
+  , /* ${object}.${column.field}$!{column.fieldPad} */${column.default}
+#end
+#end
+)
