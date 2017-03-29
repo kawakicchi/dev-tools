@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/db_xxx
-    username: xxx
-    password: xxx
+    url: jdbc:postgresql://localhost:5432/db_sample
+    username: sample
+    password: sample
     driverClassName: org.postgresql.Driver
     
     
@@ -16,3 +16,6 @@ spring:
     charset=UTF-8
     properties.input.encoding=UTF-8
     properties.output.encoding=UTF-8
+
+doma:
+  dialect : POSTGRES
